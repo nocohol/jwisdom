@@ -1,0 +1,49 @@
+body {
+    background-color: #262626;
+}
+
+html, body {
+    height: 100%;
+}
+
+.header {
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+    padding: 138px 0 0;
+    text-align: center;
+    min-height: 400px;
+}
+
+.logotxt {
+    margin-bottom: 10px;
+}
+.logotxt a {
+    font-weight: 700;
+    color: #fff;
+    font-size: 64px;
+}
+
+.header h2 {
+    color: #fff;
+    font-weight: 100;
+    font-size: 34px;
+}
+
+.logoimg {
+    position: absolute;
+    left: 1%;
+    right: 1%;
+    bottom: -34px;
+}
+
+.main {
+    margin-top: 90px;
+}
+
+.custom-navbar {
+    /*bottom: -263px;*/
+    border-width: 0px;
+}

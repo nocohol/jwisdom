@@ -6,6 +6,12 @@
     var controllers = {};
     controllers.TestController = ['$scope', '$http',
     function($scope, $http){
+        $scope.modificationCases = [
+            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}],
+            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}],
+            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}]
+        ];
+
         $scope.sayHello = function() {
             alert('hello!');
         }

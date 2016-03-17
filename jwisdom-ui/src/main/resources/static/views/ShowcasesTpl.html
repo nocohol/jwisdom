@@ -1,20 +1,17 @@
-<div class="row">
-    <div class="col-xs-6 col-md-3"><a href="javascript:;" class="thumbnail" ng-click="sayHello()"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-</div>
-
-<div class="row">
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-</div>
-
-<div class="row">
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
-    <div class="col-xs-6 col-md-3"><a href="" class="thumbnail"><img src="images/car.jpg" alt=""></a></div>
+{{cases[0][0].pictureName}}
+<div class="row" ng-repeat="row in cases">
+    <div class="col-xs-6 col-md-{{12/row.length}}" ng-repeat="col in row">
+        <div class="thumbnail">
+            <a href="javascript:;" class="thumbnail" ng-click="sayHello()">
+                <img src="images/{{col.pictureName}}" alt="">
+            </a>
+            <div class="rate">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
 </div>

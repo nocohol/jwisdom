@@ -15,6 +15,9 @@
     directives.showcasesPanel = [function() {
         var directive = {};
         directive.restrict = "E";
+        directive.scope = {
+            cases: '=list'
+        }
         directive.templateUrl = "views/ShowcasesTpl.html"
         return directive;
     }];

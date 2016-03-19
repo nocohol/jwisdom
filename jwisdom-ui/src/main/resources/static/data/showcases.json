@@ -1,0 +1,46 @@
+{
+"result":[
+  [
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    }
+  ],
+  [
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    }
+  ],
+  [
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    },
+    {
+      "pictureName": "car.jpg",
+      "rate": 3
+    }
+  ]
+]
+}

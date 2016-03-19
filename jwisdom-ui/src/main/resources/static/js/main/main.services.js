@@ -4,13 +4,18 @@
 (function(){
     'use strict';
     var services = {};
-    services.testService = ['$http', function($http) {
+    services.showcaseService = ['$http', function($http) {
         var service = {};
-        service.testFunc = function(){
-
+        service.getShowcaseList = function(){
+            return $http.get('data/showcases.json')
+                .then(function(response) {
+                    return response;
+                }, function(response) {
+                    return response;
+                });
         };
         return service;
     }];
 
-    angular.module('app.main.services', []).service(services);
+    angular.module('app.main.services', []).factory(services);
 })();

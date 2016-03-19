@@ -4,21 +4,19 @@
 (function(){
     'use strict';
     var directives = {};
-    directives.test = ['$http', function($http) {
-        var directive = {};
-        directive.restrict = 'E';
-        directive.replace = true;
-        directive.templateUrl = '';
-        return directive;
-    }];
-
     directives.showcasesPanel = [function() {
         var directive = {};
         directive.restrict = "E";
+        directive.transclude = true;
         directive.scope = {
-            cases: '=list'
-        }
-        directive.templateUrl = "views/ShowcasesTpl.html"
+            'cases': '=list'
+        };
+        directive.controller = function($scope) {
+            $scope.sayHello = function(pictureName) {
+                alert('hello! ' + pictureName);
+            }
+        };
+        directive.templateUrl = "views/ShowcasesTpl.html";
         return directive;
     }];
 

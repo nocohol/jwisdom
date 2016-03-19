@@ -1,8 +1,7 @@
-{{cases[0][0].pictureName}}
 <div class="row" ng-repeat="row in cases">
     <div class="col-xs-6 col-md-{{12/row.length}}" ng-repeat="col in row">
         <div class="thumbnail">
-            <a href="javascript:;" class="thumbnail" ng-click="sayHello()">
+            <a href="javascript:;" ng-click="sayHello(col.pictureName)">
                 <img src="images/{{col.pictureName}}" alt="">
             </a>
             <div class="rate">

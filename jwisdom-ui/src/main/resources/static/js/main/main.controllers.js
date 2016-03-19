@@ -4,17 +4,14 @@
 (function(){
     'use strict';
     var controllers = {};
-    controllers.TestController = ['$scope', '$http',
-    function($scope, $http){
-        $scope.modificationCases = [
-            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}],
-            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}],
-            [{pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}, {pictureName: 'car.jpg', rate: 3}]
-        ];
+    controllers.TestController = ['$scope', 'showcaseService',
+    function($scope, showcaseService){
+        $scope.modificationCases = [];
+        showcaseService.getShowcaseList().then(function(response){
+            $scope.modificationCases = response.data.result;
+        }, function(data) {
 
-        $scope.sayHello = function() {
-            alert('hello!');
-        }
+        });
     }];
 
     angular.module('app.main.controllers', []).controller(controllers);

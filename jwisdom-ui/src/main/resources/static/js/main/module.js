@@ -8,5 +8,6 @@
         'app.main.directives',
         'app.main.services',
         'app.main.constants',
-        'app.main.filters']);
+        'app.main.filters',
+        'me-lazyimg']);
 })();

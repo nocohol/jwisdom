@@ -22,7 +22,7 @@
     <![endif]-->
     <title>JWisdom Auto</title>
 </head>
-<body class="home-template">
+<body class="home-template" lazy-container>
 
 <#include "site/main.html">
 
@@ -31,6 +31,7 @@
 <script src="${rc.contextPath}${urls.getForLookupPath('/bower_components/angular/angular.min.js')}"></script>
 
 <script src="${rc.contextPath}${urls.getForLookupPath('/js/app.js')}"></script>
+<script src="${rc.contextPath}${urls.getForLookupPath('/js/me-lazyimg.js')}"></script>
 <script src="${rc.contextPath}${urls.getForLookupPath('/js/main/module.js')}"></script>
 <script src="${rc.contextPath}${urls.getForLookupPath('/js/shared/module.js')}"></script>
 <script src="${rc.contextPath}${urls.getForLookupPath('/js/main/main.controllers.js')}"></script>

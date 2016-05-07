@@ -8,6 +8,7 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -19,44 +20,44 @@ import javax.sql.DataSource;
 /**
  * Created by caronic on 2016/5/7.
  */
+@Profile("dev")
 @Configuration
 @EnableJpaRepositories(entityManagerFactoryRef = "entityManagerFactoryPrimary",
         transactionManagerRef = "transactionManager",
         basePackages = "com.caronic.jwisdom.data.repository")
 @EnableTransactionManagement
-public class JwisdomDataAppConfig {
-
+public class DevDatabaseConfig {
     @Autowired
     private JpaProperties jpaProperties;
 
-    @Bean(name = "mysqlDataSource")
+    @Bean(name = "primaryDataSource")
     @Primary
-    @ConfigurationProperties(prefix = "spring.ds.mysql")
-    public DataSource mysqlDataSource() {
-        System.out.println("------- mysql data source init -----------");
+    @ConfigurationProperties(prefix = "spring.primaryDataSource")
+    public DataSource primaryDataSource() {
+        System.out.println("------- primary data source init -----------");
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "h2DataSource")
-    @ConfigurationProperties(prefix = "spring.ds.h2")
-    public DataSource h2DataSource() {
-        System.out.println("------- h2 data source init -----------");
+    @Bean(name = "secondaryDataSource")
+    @ConfigurationProperties(prefix = "spring.secondaryDataSource")
+    public DataSource secondaryDataSource() {
+        System.out.println("------- secondary data source init -----------");
         return DataSourceBuilder.create().build();
     }
 
     @Bean(name = "entityManagerFactoryPrimary")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryPrimary(
             EntityManagerFactoryBuilder builder
-            ) {
+    ) {
         return builder
-                .dataSource(mysqlDataSource())
+                .dataSource(primaryDataSource())
                 .packages("com.caronic.jwisdom.data.domain")
                 .persistenceUnit("persistenceUnit")
                 .build();
     }
 
+    @Bean(name = "transactionManager")
     public PlatformTransactionManager transactionManager(EntityManagerFactoryBuilder builder) {
         return new JpaTransactionManager(entityManagerFactoryPrimary(builder).getObject());
     }
-
 }

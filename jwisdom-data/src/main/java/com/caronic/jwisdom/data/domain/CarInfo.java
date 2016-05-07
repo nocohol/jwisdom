@@ -1,13 +1,12 @@
 package com.caronic.jwisdom.data.domain;
 
 import javax.persistence.*;
-import java.net.URL;
 
 /**
  * Created by caronic on 2016/3/28.
  */
 @Entity
-@Table(name = "CAR_INFO")
+@Table(name = "car_info")
 public class CarInfo {
 
     @Id
@@ -15,7 +14,7 @@ public class CarInfo {
     private Long id;
 
     @Column(name = "image_url", nullable = false)
-    private URL imageUrl;
+    private String imageUrl;
 
     @Column(name = "rate")
     private Float rate;
@@ -24,7 +23,7 @@ public class CarInfo {
 
     }
 
-    public CarInfo(URL imageUrl, Float rate) {
+    public CarInfo(String imageUrl, Float rate) {
         this.imageUrl = imageUrl;
         this.rate = rate;
     }
@@ -37,11 +36,11 @@ public class CarInfo {
         this.id = id;
     }
 
-    public URL getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(URL imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 

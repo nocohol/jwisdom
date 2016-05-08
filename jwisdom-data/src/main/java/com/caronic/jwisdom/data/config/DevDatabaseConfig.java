@@ -5,10 +5,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -26,6 +23,7 @@ import javax.sql.DataSource;
         transactionManagerRef = "transactionManager",
         basePackages = "com.caronic.jwisdom.data.repository")
 @EnableTransactionManagement
+@PropertySource(value = "classpath:dev/dataApplication.properties")
 public class DevDatabaseConfig {
     @Autowired
     private JpaProperties jpaProperties;

@@ -1,0 +1,16 @@
+<div class="row" ng-repeat="row in cases">
+    <div class="col-xs-6 col-md-{{12/row.length}}" ng-repeat="col in row">
+        <div class="thumbnail">
+            <a href="javascript:;" ng-click="sayHello(col.pictureName)">
+                <img lazy-src="{{col.pictureName}}" alt="">
+            </a>
+            <div class="rate">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
+</div>

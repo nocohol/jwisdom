@@ -23,6 +23,7 @@
     <modules>
         <module>jwisdom-core</module>
         <module>jwisdom-data</module>
+        <module>jwisdom-cache</module>
         <module>jwisdom-ui</module>
         <module>jwisdom-web</module>
     </modules>

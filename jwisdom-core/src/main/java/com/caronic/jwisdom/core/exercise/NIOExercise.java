@@ -1,6 +1,6 @@
 package com.caronic.jwisdom.core.exercise;
 
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -28,6 +28,11 @@ public class NIOExercise {
         }
         file.close();
         channel.close();
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(NIOExercise.class.getClassLoader().getResource("myfile.txt").getPath()), 48);
+        while (bufferedReader.read() != -1) {
+            System.out.println(bufferedReader.readLine());
+        }
     }
 
 }

@@ -3,7 +3,7 @@
 > jQuery is a fast, small, and feature-rich JavaScript library.
 
 For information on how to get started and how to use jQuery, please see [jQuery's documentation](http://api.jquery.com/).
-For source files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
+For resources files and issues, please visit the [jQuery repo](https://github.com/jquery/jquery).
 
 ## Including jQuery
 

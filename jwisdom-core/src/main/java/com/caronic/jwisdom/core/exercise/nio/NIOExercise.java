@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise;
+package com.caronic.jwisdom.core.exercise.nio;
 
 import java.io.*;
 import java.nio.ByteBuffer;

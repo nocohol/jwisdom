@@ -37,11 +37,11 @@ public class CyclicBarrierExam {
         this.resources = resources;
         this.target = new String[resources.length];
         barrier = new CyclicBarrier(resources.length, () -> {
-            printInoRder();
+            printInOrder();
         });
     }
 
-    void printInoRder() {
+    void printInOrder() {
         for (int i=0; i< target.length; i++) {
                     System.out.println(target[i]);
         }

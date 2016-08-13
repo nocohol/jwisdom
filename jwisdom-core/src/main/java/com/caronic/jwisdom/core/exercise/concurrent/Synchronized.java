@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise.concurrent.doublecheck;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 import java.util.concurrent.TimeUnit;
 

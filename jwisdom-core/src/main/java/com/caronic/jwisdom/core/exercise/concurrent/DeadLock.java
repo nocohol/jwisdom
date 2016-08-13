@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 /**
  * Created by caronic on 2016/4/23.

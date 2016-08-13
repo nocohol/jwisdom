@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -36,9 +36,7 @@ public class CyclicBarrierExam {
     public CyclicBarrierExam(String[] resources) {
         this.resources = resources;
         this.target = new String[resources.length];
-        barrier = new CyclicBarrier(resources.length, () -> {
-            printInOrder();
-        });
+        barrier = new CyclicBarrier(resources.length, () -> printInOrder());
     }
 
     void printInOrder() {

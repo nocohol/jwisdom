@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise.concurrent.doublecheck;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 import java.io.IOException;
 import java.io.PipedReader;

@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise.concurrent.doublecheck;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 /**
  * Created by caronic on 2016/7/30.

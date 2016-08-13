@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 import java.util.concurrent.CountDownLatch;
 

@@ -1,4 +1,4 @@
-package com.caronic.jwisdom.core.exercise.nio;
+package com.caronic.jwisdom.core.exercise.concurrent;
 
 /**
  * It is to demonstrate how faster concurrent computing than serial computing

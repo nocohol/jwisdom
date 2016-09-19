@@ -1,5 +1,8 @@
 package com.caronic.jwisdom.core.exercise.concurrent;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -13,6 +16,7 @@ public class DeadLock2 {
 
     public static void main(String[] args) {
 
+        System.out.println(ManagementFactory.getRuntimeMXBean().getName());
         ReentrantLock lock = new ReentrantLock(false);
         ReentrantLock lock2 = new ReentrantLock(false);
         final Condition condition1 = lock.newCondition();
@@ -20,9 +24,11 @@ public class DeadLock2 {
 
         ExecutorService es = Executors.newFixedThreadPool(2);
         es.submit(() -> {
-            lock.lock();
+//            lock.lock();
+//            lock.lockInterruptibly();
             System.out.println("Thread " + Thread.currentThread().getId() + " obtains the lock");
             try {
+                lock.lockInterruptibly();
                 TimeUnit.SECONDS.sleep(1);
                 while(!lock2.tryLock())
                     condition1.await();
@@ -38,9 +44,10 @@ public class DeadLock2 {
         });
 
         es.submit(() -> {
-            lock2.lock();
+//            lock2.lock();
             System.out.println("Thread " + Thread.currentThread().getId() + " obtains the lock");
             try {
+                lock2.lockInterruptibly();
                 TimeUnit.SECONDS.sleep(1);
                 while (!lock.tryLock())
                     condition2.await();
@@ -55,6 +62,33 @@ public class DeadLock2 {
         });
 
         es.shutdown();
+        DeadlockChecker.check();
+
+    }
+
+    static class DeadlockChecker {
+        private final static ThreadMXBean mbean = ManagementFactory.getThreadMXBean();
+        final static Runnable deadlockChecker = ()-> {
+            while (true) {
+                long[] deadlockedThreadIds = mbean.findDeadlockedThreads();
+                if (deadlockedThreadIds != null) {
+                    ThreadInfo[] threadInfos = mbean.getThreadInfo(deadlockedThreadIds);
+                    for (Thread t: Thread.getAllStackTraces().keySet()) {
+                        for (int i=0; i<threadInfos.length; i++) {
+                            if (t.getId() == threadInfos[i].getThreadId()) {
+                                t.interrupt();
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        public static void check() {
+            Thread t = new Thread(deadlockChecker);
+            t.setDaemon(true);
+            t.start();
+        }
 
     }
 

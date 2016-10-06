@@ -14,6 +14,11 @@ public class Application{
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         TargetObject object = context.getBean(TargetObject.class);
         object.doSomething();
+        try {object.doSomethingWrong();}
+        catch (Exception e) {
+            System.out.println("Exception is still thrown to the caller");
+        }
+
     }
 
 //    @Override

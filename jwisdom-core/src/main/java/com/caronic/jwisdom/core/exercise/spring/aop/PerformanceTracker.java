@@ -1,10 +1,9 @@
 package com.caronic.jwisdom.core.exercise.spring.aop;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Calendar;
@@ -18,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PerformanceTracker {
 
     private final ConcurrentHashMap<String, Long> map = new ConcurrentHashMap();
+    private Logger LOGGER = LoggerFactory.getLogger(PerformanceTracker.class);
 
     // all of the joint point that has annotated by PerformanceAware
     @Pointcut("@annotation(com.caronic.jwisdom.core.exercise.spring.aop.PerformanceAware)")
@@ -42,6 +42,18 @@ public class PerformanceTracker {
         String methodName = joinpoint.getSignature().getName();
         System.out.println(methodName + " was normally completed at " + cal.getTime());
         System.out.println("Total execution time: " + (end - map.get(methodName)) / 1000);
+    }
+
+    @AfterThrowing(value="anyPerformanceAwareMethod()", throwing = "e")
+    public void logException(JoinPoint joinpoint, Throwable e) {
+        LOGGER.error("Exception happened.");
+        String methodName = joinpoint.getSignature().getName();
+        System.out.println(methodName);
+
+        if (e instanceof RuntimeException) {
+            System.out.println("RuntimeException happened");
+        }
+
     }
 
 }

@@ -20,4 +20,9 @@ public class TargetObject {
         }
     }
 
+    @PerformanceAware
+    public void doSomethingWrong() {
+        throw new RuntimeException("Do something wrong");
+    }
+
 }

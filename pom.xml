@@ -26,6 +26,7 @@
         <module>jwisdom-cache</module>
         <module>jwisdom-ui</module>
         <module>jwisdom-web</module>
+        <module>jwisdom-service</module>
     </modules>
 
     <dependencies>

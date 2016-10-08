@@ -11,6 +11,8 @@ public class CarInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    //it will generate " call next value for hibernate_sequence" statement to get the next value,
+    //so need to create a sequence hibernate_sequence in H2. Before it doesn't need this.
     private Long id;
 
     @Column(name = "image_url", nullable = false)

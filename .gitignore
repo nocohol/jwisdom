@@ -6,3 +6,12 @@
 
 # ignore all target folders
 target
+
+# ignore all settings folders
+.settings
+
+#ignore all classpath files
+.classpath
+
+#ignore all project files
+.project

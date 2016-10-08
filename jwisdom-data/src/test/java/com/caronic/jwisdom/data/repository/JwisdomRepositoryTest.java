@@ -1,21 +1,22 @@
 package com.caronic.jwisdom.data.repository;
 
-import com.caronic.jwisdom.DataJpaApplicationTest;
-import com.caronic.jwisdom.data.domain.CarInfo;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.assertTrue;
+import com.caronic.jwisdom.data.domain.CarInfo;
 
 /**
  * Created by caronic on 2016/3/28.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(DataJpaApplicationTest.class)
+//@SpringApplicationConfiguration(DataJpaApplicationTest.class)
+@SpringBootTest
 @ActiveProfiles("test")
 public class JwisdomRepositoryTest {
 

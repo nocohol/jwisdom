@@ -24,6 +24,7 @@ public class JaxRsApiApplication extends Application {
                 String.format("{scheme}://%s:{port}/%s/%s%s",
                         environment.getProperty(AppConfig.SERVER_HOST),
                         AppConfig.CONTEXT_PATH,
+                        APPLICATION_PATH,
                         servicePath)
         );
     }

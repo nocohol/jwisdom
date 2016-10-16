@@ -5,7 +5,6 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -25,7 +24,7 @@ import javax.sql.DataSource;
         transactionManagerRef = "testTransactionManager",
         basePackages = "com.caronic.jwisdom.data.repository")
 @EnableTransactionManagement
-@PropertySource(value = {"classpath:test/dataApplication.properties"})
+//@PropertySource(value = {"classpath:test/dataApplication.properties"})
 public class TestDatabaseConfig {
 
     @Bean(name = "testDataSource")

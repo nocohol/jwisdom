@@ -2,7 +2,7 @@ package com.caronic.jwisdom.core.exercise.algorithm;
 
 /**
  * An integer array, need to find the sub array their sum is the biggest one.
- * e.g. [1,2,-4,2,3,-2,1,2], the proper output should be []
+ * e.g. [-2,1,-3,4,-1,2,1,-5,4], the proper output should be [4, -1, 2, 1]
  * Created by caronic on 2016/11/19.
  */
 public class MaxSubArray {

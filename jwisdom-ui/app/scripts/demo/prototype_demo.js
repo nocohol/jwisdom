@@ -16,7 +16,8 @@ var Person = function(name, age) {
 Person.prototype = Object.create(Animal.prototype, {
 	shout: {
 		value: function() {
-			Animal.prototype.shout.apply(this, arguments);
+			// Animal.prototype.shout.apply(this, arguments);
+			console.log(this.name + " is " + this.age + " old");
 		}
 	}
 });

@@ -23,6 +23,7 @@ public class Example1 {
         System.out.println(example.firstUniqueChar("loveleetcode"));
         System.out.println(example.firstUniqueChar("abcabcabc"));
         System.out.println("time: " + (System.currentTimeMillis() - start));
+        System.out.println("test");
     }
 
 }

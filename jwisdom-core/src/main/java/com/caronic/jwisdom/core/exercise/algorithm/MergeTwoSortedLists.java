@@ -8,39 +8,31 @@ import java.util.List;
  * Created by caronic on 2016/11/12.
  */
 public class MergeTwoSortedLists {
-    public static List<Integer> merge(List<Integer> list1, List<Integer> list2) {
-        LinkedList<Integer> linkedList1 = (LinkedList<Integer>)list1;
-        LinkedList<Integer> linkedList2 = (LinkedList<Integer>)list2;
-        LinkedList<Integer> mergedList = new LinkedList<>();
-        if (linkedList1 == null || linkedList1.isEmpty())
+    public static ListNode merge(ListNode list1, ListNode list2) {
+        if (list1 == null) {
             return list2;
-        if (linkedList2 == null || linkedList2.isEmpty())
-            return list1;
-
-        while (!linkedList1.isEmpty() || !linkedList2.isEmpty()) {
-            Integer cur = null;
-            if (linkedList1.isEmpty()) {
-                cur = linkedList2.remove();
-            }
-            else if (linkedList2.isEmpty()) {
-                cur = linkedList1.remove();
-            }
-            else {
-                if (linkedList1.getFirst() > linkedList2.getFirst()) {
-                    cur = linkedList2.remove();
-                } else {
-                    cur = linkedList1.remove();
-                }
-            }
-            mergedList.add(cur);
         }
-        return mergedList;
+
+        if (list2 == null) {
+            return list1;
+        }
+
+        ListNode mergedList;
+        if (list1.val < list2.val) {
+            mergedList = list1;
+            mergedList.next = merge(list1.next, list2);
+        } else {
+            mergedList = list2;
+            mergedList.next = merge(list1, list2.next);
+        }
+        return  mergedList;
     }
 
-    public static void main(String[] args) {
-        LinkedList<Integer> list1 = new LinkedList<>(Arrays.asList(1,2,3,4,5,6));
-        LinkedList<Integer> list2 = new LinkedList<>(Arrays.asList(2,3,4,5,6,7));
-        List<Integer> mergedList = MergeTwoSortedLists.merge(list1, list2);
-        mergedList.forEach(System.out::println);
+    static class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

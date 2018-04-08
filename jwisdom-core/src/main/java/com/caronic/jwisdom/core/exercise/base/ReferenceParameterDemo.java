@@ -15,6 +15,8 @@ public class ReferenceParameterDemo {
         changeValue(myClass);
         System.out.println(myClass.getName() + " " + myClass.getAge()); //Expected output is "He Fei 30"
 
+        changeValueWithFinal(myClass);
+
         MyClass myClass1 = new MyClass("nocohol", 30);
         swap(myClass, myClass1);
         System.out.println(myClass.getName() + " " + myClass.getAge()); //Expected output is "He Fei 30";
@@ -22,14 +24,28 @@ public class ReferenceParameterDemo {
 
         myClass = changeAndReturn(myClass);
         System.out.println(myClass.getName() + " " + myClass.getAge()); //Expected output is "He Fei 30";
+
+        MyClass myClass2 = null;
+        MyClass myClass3 = changeAndReturn(myClass2);
+        System.out.println(myClass2 == null);
+        System.out.println(myClass3 == null);
     }
 
     public static void changeValue(MyClass myClass) {
+        if (myClass == null)
+            myClass = new MyClass();
         myClass.setName("He Fei");
         myClass.setAge(30);
     }
 
+    public static void changeValueWithFinal(final MyClass myClass) {
+        myClass.setAge(29);
+        myClass.setName("Nicholas He");
+    }
+
     public static MyClass changeAndReturn(MyClass myClass) {
+        if(myClass == null)
+            myClass = new MyClass();
         myClass.setName("He Fei");
         myClass.setAge(30);
         return myClass;
@@ -44,6 +60,10 @@ public class ReferenceParameterDemo {
     static class MyClass {
         private String name;
         private int age;
+
+        public MyClass() {
+
+        }
 
         public MyClass(String name, int age) {
             this.name = name;
